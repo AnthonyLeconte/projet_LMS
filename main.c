@@ -22,7 +22,7 @@ float frequency_analyis(){
     // Compute half DFT
     for (int i =0 ; i < half_dft ; i++){
         // Instantiate BASE_ with nested for loop
-        for (int n = 0; n < FFT_SIZE ; n ++){
+        for (int n = 0; n < SIZE ; n ++){
             BASE_COSINE[n] = ...
             BASE_SINE[n] = ...
         }
