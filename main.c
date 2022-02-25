@@ -7,7 +7,7 @@
 
 // Signal to be processing 
 #include "sig.h"
-
+ 
 // Constant 
 #define FFT_SIZE 512
 
