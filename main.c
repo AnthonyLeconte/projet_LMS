@@ -56,33 +56,6 @@ float frequency_analyis(){
 }
 
 
-float amplitude_extraction(float f){
-    // Define step size 
-    float mu = 0.005;
-    // Define buffers 
-    float* u = ... 
-    float* w = ... 
-    float* e = ... 
-    // Instantiate w & u 
-    for (int n = 0; n < SIZE; n++){
-        w[n] = ...
-        u[n] = ...
-    }
-    // LMS Algorithm 
-    for (int n = 0; n < SIZE; n++){
-        ...
-    }
-    // Compute final estimate 
-    int mean_size = 500;
-    float amp = 0;
-    for (int n = 0; n < mean_size; n++){
-        // Mean on last samples 
-        ...
-    }
-    printf("Estimated amplitude is %f \n",amp);
-    return amp;
-}
-
 
 int main(){
     printf("--- Frequency analysis and amplitude extraction\n");
