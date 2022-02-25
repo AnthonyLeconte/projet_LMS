@@ -7,7 +7,7 @@
 
 // Signal to be processing 
 #include "sig.h"
- 
+
 // Constant 
 #define FFT_SIZE 512
 
@@ -55,24 +55,24 @@ float amplitude_extraction(float f){
     // Define step size 
     float mu = 0.005;
     // Define buffers 
-    float* u = ... 
-    float* w = ... 
-    float* e = ... 
+    float* u = malloc(SIZE*sizeof(float)); //ref cos2pi f n)*w
+    float* w = malloc(SIZE*sizeof(float)); // coef variable 
+    //float* e = malloc(SIZE*sizeof(float));  // coef erreur
     // Instantiate w & u 
     for (int n = 0; n < SIZE; n++){
-        w[n] = ...
-        u[n] = ...
+        w[n] = 0
+        u[n] = cos(2*PI*f*n)
     }
     // LMS Algorithm 
     for (int n = 0; n < SIZE; n++){
-        ...
+       w[n+1]=w[n]-mu*w[n]*(SIG[n]-w[n]*u[n]);
     }
     // Compute final estimate 
     int mean_size = 500;
     float amp = 0;
     for (int n = 0; n < mean_size; n++){
         // Mean on last samples 
-        ...
+        amp+=w[SIZE-mean_size+n]/(mean_size);
     }
     printf("Estimated amplitude is %f \n",amp);
     return amp;
